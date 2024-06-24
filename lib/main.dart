@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:spinemotion_app/pages/articlepage/article.dart';
+import 'package:spinemotion_app/pages/articlepage/article_provider.dart';
 import 'package:spinemotion_app/pages/homepage/home_page.dart';
+import 'package:spinemotion_app/pages/homepage/schedule.dart';
 import 'package:spinemotion_app/pages/homepage/theme_provider.dart';
 import 'package:spinemotion_app/pages/registerpage/provider/register_provider.dart';
+import 'package:spinemotion_app/pages/terapipage/terapi_model.dart';
 import 'package:spinemotion_app/pages/terapipage/terapi_page.dart';
+import 'package:spinemotion_app/pages/terapipage/widgets/camera_instruction.dart';
 import 'package:spinemotion_app/pages/welcomepage/welcome_provider.dart';
 
 
@@ -31,9 +36,10 @@ class _MyAppState extends State<MyApp> {
           providers: [
             ChangeNotifierProvider<WelcomeProvider>(create: (context) => WelcomeProvider(),),
             ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider() ),
-            ChangeNotifierProvider<RegisterProvider>(create: (context) => RegisterProvider() )
+            ChangeNotifierProvider<RegisterProvider>(create: (context) => RegisterProvider() ),
+            ChangeNotifierProvider(create: (_) => PageIndexNotifier()),
           ],
-            child: HomePage(),
+            child: SchedulePage(),
 
         ),
       ),

@@ -24,7 +24,7 @@ class ThemeProvider with ChangeNotifier {
     _boxInfoExercise = _isExercisePressed ? Colors.white70 : Color.fromRGBO(59, 120, 138, 1);
     _boxInfoText = _isExercisePressed ? Colors.black : Colors.white;
     _boxInfoSleep = _isExercisePressed ? Color.fromRGBO(153, 135, 115, 1) : Colors.white70;
-    _sleepButtonLeft = _sleepButtonLeft == 60 ? 152 : 80;
+    _sleepButtonLeft = _sleepButtonLeft == 100 ? 152 : 50;
     _isFirstImage = !_isFirstImage;
     notifyListeners();
   }

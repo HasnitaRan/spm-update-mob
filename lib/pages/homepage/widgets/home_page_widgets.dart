@@ -290,14 +290,13 @@ Widget boxMenu(BuildContext context, String title){
               color: Color.fromRGBO(59, 120, 138, 0.7),
               borderRadius: BorderRadius.all(Radius.circular(30))
           ),
-
         ),
       SizedBox(width: 5.w,),
       InkWell(
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ArticlePage(title: "Article")),
+            MaterialPageRoute(builder: (context) => ArticlePage()),
           );
         },
         child: Container(
