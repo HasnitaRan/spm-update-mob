@@ -4,12 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:spinemotion_app/pages/articlepage/article.dart';
 import 'package:spinemotion_app/pages/articlepage/article_provider.dart';
 import 'package:spinemotion_app/pages/homepage/home_page.dart';
-import 'package:spinemotion_app/pages/homepage/schedule.dart';
 import 'package:spinemotion_app/pages/homepage/theme_provider.dart';
 import 'package:spinemotion_app/pages/registerpage/provider/register_provider.dart';
-import 'package:spinemotion_app/pages/terapipage/terapi_model.dart';
-import 'package:spinemotion_app/pages/terapipage/terapi_page.dart';
-import 'package:spinemotion_app/pages/terapipage/widgets/camera_instruction.dart';
+import 'package:spinemotion_app/pages/welcomepage/welcome.dart';
 import 'package:spinemotion_app/pages/welcomepage/welcome_provider.dart';
 
 
@@ -31,15 +28,16 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       child: MaterialApp(
+        // theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
         debugShowCheckedModeBanner: false,
         home: MultiProvider(
           providers: [
             ChangeNotifierProvider<WelcomeProvider>(create: (context) => WelcomeProvider(),),
             ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider() ),
             ChangeNotifierProvider<RegisterProvider>(create: (context) => RegisterProvider() ),
-            ChangeNotifierProvider(create: (_) => PageIndexNotifier()),
+            ChangeNotifierProvider<PageIndexNotifier>(create: (_) => PageIndexNotifier()),
           ],
-            child: SchedulePage(),
+            child: HomePage(),
 
         ),
       ),

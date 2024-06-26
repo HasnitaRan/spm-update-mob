@@ -1,8 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:spinemotion_app/pages/articlepage/article.dart';
+import 'package:spinemotion_app/pages/profilepage/perform_page.dart';
 import 'package:spinemotion_app/pages/terapipage/terapi_page.dart';
+
+import '../../articlepage/article_provider.dart';
+import '../schedule.dart';
 
 Widget boxInfo(BuildContext context) {
   var height = MediaQuery.of(context).size.height;
@@ -67,7 +72,7 @@ Widget boxInfo(BuildContext context) {
                       Text(
                         "Dashboard",
                         style: TextStyle(
-                          fontSize: 70,
+                          fontSize: 30.sp,
                           color: Colors.white60,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 1,
@@ -76,7 +81,7 @@ Widget boxInfo(BuildContext context) {
                       Text(
                         "Hallo Ryujin, Selamat Datang !",
                         style: TextStyle(
-                          fontSize: 26,
+                          fontSize: 15.sp,
                           color: Colors.white70,
                           letterSpacing: 1,
                         ),
@@ -186,7 +191,7 @@ Widget boxStartTerapi(BuildContext context) {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TerapiPage()));
+                            builder: (context) => PlaceTypeView()));
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -264,40 +269,70 @@ Widget boxStartTerapi(BuildContext context) {
 //   );
 // }
 
+Widget titleMenu(){
+  return Container(
+    padding: EdgeInsets.only(left: 20.w),
+      child: Center(
+        child: Text(
+          "Menu Lainnya",
+          style: TextStyle(
+            fontSize: 25.sp,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(59, 120, 138, 1),
+            decoration: TextDecoration.underline,
+          ),
+        ),
+  ));
+}
+
 Widget boxMenu(BuildContext context, String title){
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-       Container(
-          width: 160.w,
-          height: 120.h,
-          child: Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                FittedBox(
-                    fit: BoxFit.cover,
-                    child: Image.asset("assets/images/visualize.png", width: 230, height: 220,)),
-                Transform.translate(
-                    offset: Offset(0, -30),
-                    child: Text("VISUALISASI", style: TextStyle(color: Colors.white, fontSize: 16),))
-                // Text("Visualisasi")
-              ],
+       InkWell(
+         onTap: () {
+           // Navigator.push(
+           //     context,
+           //     MaterialPageRoute(
+           //       builder: (context) => ChangeNotifierProvider(
+           //         create: (context) => PageIndexNotifier(),
+           //         child: PerformPage(),),
+           //     ));
+         },
+         child: Container(
+            width: 160.w,
+            height: 120.h,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset("assets/images/visualize.png", width: 230, height: 220,)),
+                  Transform.translate(
+                      offset: Offset(0, -30),
+                      child: Text("VISUALISASI", style: TextStyle(color: Colors.white, fontSize: 16),))
+                  // Text("Visualisasi")
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(59, 120, 138, 0.7),
+                borderRadius: BorderRadius.all(Radius.circular(30))
             ),
           ),
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(59, 120, 138, 0.7),
-              borderRadius: BorderRadius.all(Radius.circular(30))
-          ),
-        ),
+       ),
       SizedBox(width: 5.w,),
       InkWell(
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ArticlePage()),
-          );
+            MaterialPageRoute(
+              builder: (context) => ChangeNotifierProvider(
+            create: (context) => PageIndexNotifier(),
+            child: ArticlePage(),),
+          ));
         },
         child: Container(
           width: 160.w,

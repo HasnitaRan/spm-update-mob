@@ -16,6 +16,7 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold( backgroundColor: Color.fromRGBO(216, 228, 232,1),
+      appBar: buildAppBar(),
 
       body: listArticle(),
     );
@@ -176,7 +177,7 @@ class ArticlePage extends StatelessWidget {
         ),
         SizedBox(height: 20.0),
         Consumer<PageIndexNotifier>(
-          builder: (context, pageIndexNotifier, child) {
+          builder: (context, pageIndexNotifier, _) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: imgList.asMap().entries.map((entry) {

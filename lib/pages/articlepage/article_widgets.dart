@@ -8,19 +8,12 @@ import 'article_provider.dart';
 
 AppBar buildAppBar() {
   return AppBar(
-    automaticallyImplyLeading: false,
-    leading: IconButton(
-      onPressed: () {},
-      icon: Icon(
-        Icons.menu,
-        color: Colors.black, size: 30,
+    title: Container(
+      margin: EdgeInsets.only(left: 5.w, right: 7.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
       ),
-    ),
-    backgroundColor:  Color.fromRGBO(216, 228, 232,1),
-    centerTitle: true,
-    title: Text(
-      "Artikel Kesehatan",
-      style: TextStyle(color: Colors.black, fontSize: 15.sp),
     ),
   );
 }
